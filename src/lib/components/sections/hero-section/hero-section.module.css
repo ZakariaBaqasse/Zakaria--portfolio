@@ -1,0 +1,7 @@
+.intro-paragraph {
+    max-width: 30rem;
+  }
+  
+  .intro-heading {
+    @apply text-white  text-5xl md:text-6xl pt-20 pl-10 md:pt-40 md:pl-20;
+  }
