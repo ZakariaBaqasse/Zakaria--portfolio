@@ -1,55 +1,26 @@
-import {
-  GITHUB_LINK,
-  LINKEDIN_LINK,
-  TWITTER_LINK,
-  MAIL_ADDRESS,
-} from "@/lib/utils/const";
-import { SocialLinkLocation } from "@/lib/utils/types";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fab } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import classes from "./social-links.module.css";
+"use client";
 
-const Links = ({ location }: { location: SocialLinkLocation }) => {
-  library.add(fab);
+import { motion } from "framer-motion";
+
+export default function SocialLink({
+  link,
+  children,
+  className,
+}: {
+  link: string;
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
-    <div
-      className={`${
-        location == SocialLinkLocation.INTRO
-          ? "my-5 md:my-3 ml-12 md:ml-28"
-          : ""
-      }`}
+    <motion.a
+      whileHover={{ y: -2 }}
+      whileTap={{ scale: 0.9 }}
+      transition={{ duration: 0.2 }}
+      href={link}
+      target="_blank"
+      className={`${className} text-muted-foreground hover:text-primary`}
     >
-      <a
-        href={GITHUB_LINK}
-        target="_blank"
-        className={`${classes["social-icons"]}`}
-      >
-        <FontAwesomeIcon icon={["fab", "github"]} />
-      </a>
-      <a
-        href={LINKEDIN_LINK}
-        target="_blank"
-        className={`${classes["social-icons"]}`}
-      >
-        <FontAwesomeIcon icon={["fab", "linkedin"]} />
-      </a>
-      <a
-        href={TWITTER_LINK}
-        target="_blank"
-        className={`${classes["social-icons"]}`}
-      >
-        <FontAwesomeIcon icon={["fab", "twitter"]} />
-      </a>
-      <a
-        href={`mailto:${MAIL_ADDRESS}`}
-        className={`${classes["social-icons"]}`}
-      >
-        <FontAwesomeIcon icon={faEnvelope} />
-      </a>
-    </div>
+      {children}
+    </motion.a>
   );
-};
-
-export default Links;
+}

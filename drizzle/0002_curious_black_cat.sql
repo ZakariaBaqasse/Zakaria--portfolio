@@ -1,0 +1,1 @@
+ALTER TABLE "experiences" ADD COLUMN "createdAt" timestamp(3) DEFAULT now() NOT NULL;
