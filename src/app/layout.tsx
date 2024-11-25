@@ -35,6 +35,8 @@ export const metadata: Metadata = {
     "AI-powered platforms",
   ],
   openGraph: {
+    url: `${process.env.APP_URL}`,
+    type: "website",
     title: "Zakaria BAQASSE | Portfolio",
     description:
       "Highlighting expertise in AI engineering, intelligent agents, and full-stack development, this portfolio showcases innovative projects like Profundo, combining AI efficiency with reliable research, and demonstrates skills in building AI-driven solutions, LLM integration, and creating intelligent systems that solve complex problems.",
