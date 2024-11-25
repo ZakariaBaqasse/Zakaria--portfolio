@@ -24,7 +24,6 @@ export const metadata: Metadata = {
     "machine learning",
     "natural language processing",
     "web research platforms",
-    "Profundo project",
     "AI applications",
     "portfolio projects",
     "developer portfolio",
