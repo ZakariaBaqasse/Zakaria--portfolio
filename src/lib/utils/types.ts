@@ -1,21 +1,17 @@
-import { IProject } from "../db/models/project.model";
-
-export type Carrer = {
+export type Career = {
+  id: number;
   start_date: string;
   end_date: string;
   title: string;
   institute: string;
   description: string;
-  technologies?: string[];
+  institute_link?: string;
+  location?: string;
 };
 
-export enum CarrerType {
-  ACADEMIC = "ACADEMIC",
-  PROFESSIONAL = "PROFESSIONAL",
-}
-
-export type CarrerCardProps = {
-  carrer: Carrer;
+export type CareerCardProps = {
+  career: Career;
+  type: "academic" | "professional";
 };
 
 export type NavigateButtonProps = {
@@ -23,19 +19,16 @@ export type NavigateButtonProps = {
   linkTo: string;
 };
 
-export type ModalProps = {
-  project: IProject;
-  isOpen: boolean;
-  onClose: () => void;
+export type Project = {
+  title: string;
+  shortDescription: string;
+  longDescription: string;
+  image: string;
+  links: ProjectLinks;
+  technologies: string[];
 };
 
-export type StyledTitleProps = {
-  word1: string;
-  word2: string;
-  textColor?: string;
+export type ProjectLinks = {
+  visit: string;
+  github?: string;
 };
-
-export enum SocialLinkLocation {
-  INTRO = "intro",
-  FOOTER = "footer",
-}
