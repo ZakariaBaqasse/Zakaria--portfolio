@@ -21,7 +21,9 @@ export default function ProjectModal({ project }: { project: Project }) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="bg-dark text-light">Learn More</Button>
+        <Button className="bg-dark text-light text-base w-36 h-12">
+          Learn More
+        </Button>
       </DialogTrigger>
       <DialogContent className="md:max-w-[600px] max-w-[90vw]">
         <DialogHeader>
