@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 export default function SocialLink({
   link,
   children,
@@ -12,15 +8,13 @@ export default function SocialLink({
   className?: string;
 }) {
   return (
-    <motion.a
-      whileHover={{ y: -2 }}
-      whileTap={{ scale: 0.9 }}
-      transition={{ duration: 0.2 }}
+    <a
+      aria-label="social link"
       href={link}
       target="_blank"
-      className={`${className} text-muted-foreground hover:text-primary`}
+      className={`${className} hover:translate-y-[-2px] transition-all duration-200 text-muted-foreground hover:text-primary`}
     >
       {children}
-    </motion.a>
+    </a>
   );
 }
