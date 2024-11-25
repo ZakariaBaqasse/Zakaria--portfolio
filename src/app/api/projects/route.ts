@@ -11,7 +11,7 @@ export type ProjectsResponse = {
   hasMore: boolean;
 };
 
-export async function GET(request: NextRequest, response: NextResponse) {
+export async function GET(request: NextRequest) {
   try {
     console.log("Fetching projects");
     const page = request.nextUrl.searchParams.get("page") || "1";
