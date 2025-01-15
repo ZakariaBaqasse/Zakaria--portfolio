@@ -1,0 +1,1 @@
+ALTER TABLE "projects" ALTER COLUMN "longDescription" DROP NOT NULL;

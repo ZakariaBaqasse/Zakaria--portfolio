@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import ProjectModal from "./ProjectModal";
 import TechChip from "./TechChip";
+import { Badge } from "@/components/ui/badge";
 
 export default function ProjectCard({
   project,
@@ -25,7 +26,7 @@ export default function ProjectCard({
         className={`relative cursor-pointer overflow-hidden rounded-t-lg lg:rounded-lg w-full p-0`}
       >
         <Image
-          src={project.image}
+          src={project.image || "/images/coming-soon-placeholder.avif"}
           alt={project.title}
           width={800}
           height={400}
@@ -33,14 +34,24 @@ export default function ProjectCard({
         />
       </CardHeader>
       <CardContent className={`p-4 `}>
-        <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
+        <h3 className="text-2xl font-bold mb-2 flex justify-start items-center gap-4">
+          {project.title}{" "}
+          {project.comingSoon && (
+            <Badge
+              className="text-lightBlue border-lightBlue"
+              variant={"outline"}
+            >
+              Coming soon
+            </Badge>
+          )}{" "}
+        </h3>
         <p className="text-gray-600 mb-4">{project.shortDescription}</p>
         <div className="flex flex-wrap gap-2 mb-4">
           {project.technologies.map((tech) => (
             <TechChip key={tech} tech={tech} />
           ))}
         </div>
-        <ProjectModal project={project} />
+        {!project.comingSoon && <ProjectModal project={project} />}
       </CardContent>
     </Card>
   );

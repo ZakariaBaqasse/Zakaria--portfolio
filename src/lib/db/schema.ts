@@ -1,4 +1,5 @@
 import {
+  boolean,
   integer,
   jsonb,
   pgTable,
@@ -25,8 +26,9 @@ export const projectsTable = pgTable("projects", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   title: varchar({ length: 255 }).notNull(),
   shortDescription: varchar({ length: 1000 }).notNull(),
-  longDescription: varchar({ length: 2000 }).notNull(),
-  image: varchar({ length: 255 }).notNull(),
+  longDescription: varchar({ length: 2000 }),
+  image: varchar({ length: 255 }),
+  comingSoon: boolean().default(false),
   links: jsonb("links").$type<ProjectLinks>().notNull(),
   technologies: varchar({ length: 255 }).array(),
   createdAt: timestamp("createdAt", { precision: 3, mode: "string" })
