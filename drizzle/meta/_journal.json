@@ -36,6 +36,20 @@
       "when": 1732482690043,
       "tag": "0004_breezy_whiplash",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1736971635228,
+      "tag": "0005_ordinary_maelstrom",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1736972186266,
+      "tag": "0006_needy_mandroid",
+      "breakpoints": true
     }
   ]
 }

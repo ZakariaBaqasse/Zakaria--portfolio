@@ -22,10 +22,11 @@ export type NavigateButtonProps = {
 export type Project = {
   title: string;
   shortDescription: string;
-  longDescription: string;
-  image: string;
+  longDescription: string | null;
+  image: string | null;
   links: ProjectLinks;
   technologies: string[];
+  comingSoon: boolean | null;
 };
 
 export type ProjectLinks = {

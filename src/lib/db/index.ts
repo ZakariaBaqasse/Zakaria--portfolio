@@ -104,6 +104,25 @@ This project strengthened my skills in backend development and cloud services, p
       ],
       image: "https://i.ibb.co/JsKTRFr/profundo.png",
     },
+    {
+      title: "InspireCraft",
+      shortDescription:
+        "InspireCraft empowers LinkedIn creators with AI-driven tools to uncover trending ideas and transform them into engaging posts. It streamlines content generation by analyzing audiences and delivering tailored insights, helping users stay relevant effortlessly",
+      links: {
+        visit: "",
+      },
+      technologies: [
+        "Python",
+        "Typescript",
+        "FastAPI",
+        "Next.js",
+        "PostgreSQL",
+        "LangChain",
+        "LangGraph",
+        "Tailwind",
+      ],
+      comingSoon: true,
+    },
   ];
   for (const project of projects) {
     await db.insert(projectsTable).values(project);
