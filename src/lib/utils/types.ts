@@ -24,6 +24,7 @@ export type Project = {
   shortDescription: string;
   longDescription: string | null;
   image: string | null;
+  demoVideo: string | null;
   links: ProjectLinks;
   technologies: string[];
   comingSoon: boolean | null;

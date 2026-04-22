@@ -9,6 +9,13 @@ import {
   DialogContent,
   DialogTitle,
 } from "@/components/ui/dialog";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
 import { Project } from "@/lib/utils/types";
 import { Github, Globe } from "lucide-react";
 import Image from "next/image";
@@ -18,6 +25,14 @@ import remarkGfm from "remark-gfm";
 import TechChip from "./TechChip";
 
 export default function ProjectModal({ project }: { project: Project }) {
+  const hasMedia = project.image || project.demoVideo;
+  const mediaItems = [
+    ...(project.image ? [{ type: "image" as const, src: project.image }] : []),
+    ...(project.demoVideo
+      ? [{ type: "video" as const, src: project.demoVideo }]
+      : []),
+  ];
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -30,6 +45,43 @@ export default function ProjectModal({ project }: { project: Project }) {
           <DialogTitle className="text-dark">{project.title}</DialogTitle>
         </DialogHeader>
         <div className="grid gap-1 md:gap-4 md:py-4 py-2">
+          {hasMedia && (
+            <div className="px-10">
+              <Carousel className="w-full">
+                <CarouselContent>
+                  {mediaItems.map((item, index) => (
+                    <CarouselItem key={index}>
+                      {item.type === "image" ? (
+                        <Image
+                          src={item.src}
+                          alt={`${project.title} thumbnail`}
+                          width={600}
+                          height={338}
+                          className="w-full h-auto rounded-lg object-cover"
+                        />
+                      ) : (
+                        <div className="relative w-full aspect-video rounded-lg overflow-hidden">
+                          <iframe
+                            src={item.src}
+                            title={`${project.title} demo video`}
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            className="w-full h-full"
+                          />
+                        </div>
+                      )}
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                {mediaItems.length > 1 && (
+                  <>
+                    <CarouselPrevious />
+                    <CarouselNext />
+                  </>
+                )}
+              </Carousel>
+            </div>
+          )}
           <ReactMarkdown
             className="text-dark text-sm md:text-base prose prose-sm md:prose-base max-w-none"
             remarkPlugins={[remarkGfm]}
@@ -66,3 +118,4 @@ export default function ProjectModal({ project }: { project: Project }) {
     </Dialog>
   );
 }
+

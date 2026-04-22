@@ -28,6 +28,7 @@ export const projectsTable = pgTable("projects", {
   shortDescription: varchar({ length: 1000 }).notNull(),
   longDescription: varchar({ length: 2000 }),
   image: varchar({ length: 255 }),
+  demoVideo: varchar({ length: 500 }),
   comingSoon: boolean().default(false),
   links: jsonb("links").$type<ProjectLinks>().notNull(),
   technologies: varchar({ length: 255 }).array(),
