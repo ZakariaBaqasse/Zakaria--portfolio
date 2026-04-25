@@ -20,6 +20,7 @@ export type NavigateButtonProps = {
 };
 
 export type Project = {
+  id: number;
   title: string;
   shortDescription: string;
   longDescription: string | null;

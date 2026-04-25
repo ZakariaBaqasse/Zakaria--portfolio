@@ -2,10 +2,11 @@
 
 import { Project } from "@/lib/utils/types";
 import Image from "next/image";
+import Link from "next/link";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import ProjectModal from "./ProjectModal";
 import TechChip from "./TechChip";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 export default function ProjectCard({
   project,
@@ -51,7 +52,13 @@ export default function ProjectCard({
             <TechChip key={tech} tech={tech} />
           ))}
         </div>
-        {!project.comingSoon && <ProjectModal project={project} />}
+        {!project.comingSoon && (
+          <Link href={`/projects/${project.id}`}>
+            <Button className="bg-dark text-light text-base w-36 h-12">
+              Learn More
+            </Button>
+          </Link>
+        )}
       </CardContent>
     </Card>
   );
