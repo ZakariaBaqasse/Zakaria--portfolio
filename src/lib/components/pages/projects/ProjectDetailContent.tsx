@@ -159,14 +159,16 @@ export default function ProjectDetailContent({
                   Links
                 </h2>
                 <div className="flex flex-col gap-3">
-                  <Link
-                    target="_blank"
-                    href={project.links.visit}
-                    className="inline-flex items-center gap-2 text-sm font-medium px-4 py-2.5 rounded-lg bg-dark text-light hover:bg-lightBlue transition-colors duration-200 w-full justify-center"
-                  >
-                    <Globe className="w-4 h-4" />
-                    Visit Project
-                  </Link>
+                  {project.links.visit && (
+                    <Link
+                      target="_blank"
+                      href={project.links.visit}
+                      className="inline-flex items-center gap-2 text-sm font-medium px-4 py-2.5 rounded-lg bg-dark text-light hover:bg-lightBlue transition-colors duration-200 w-full justify-center"
+                    >
+                      <Globe className="w-4 h-4" />
+                      Visit Project
+                    </Link>
+                  )}
                   {project.links.github && (
                     <Link
                       target="_blank"
