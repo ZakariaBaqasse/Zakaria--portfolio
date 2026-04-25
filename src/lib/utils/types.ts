@@ -20,10 +20,12 @@ export type NavigateButtonProps = {
 };
 
 export type Project = {
+  id: number;
   title: string;
   shortDescription: string;
   longDescription: string | null;
   image: string | null;
+  demoVideo: string | null;
   links: ProjectLinks;
   technologies: string[];
   comingSoon: boolean | null;
