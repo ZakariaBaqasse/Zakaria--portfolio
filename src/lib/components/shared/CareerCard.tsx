@@ -1,6 +1,8 @@
 import { CareerCardProps } from "@/lib/utils/types";
 import React, { useRef } from "react";
 import ListIcon from "./ListIcon";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 const CareerTitle = ({
   title,
@@ -46,9 +48,12 @@ const CareerDetails = ({
 );
 
 const CareerDescription = ({ description }: { description: string }) => (
-  <p className="font-medium w-full my-2 md:text-base text-sm text-dark">
+  <ReactMarkdown
+    className="prose prose-sm md:prose-base max-w-none text-dark"
+    remarkPlugins={[remarkGfm]}
+  >
     {description}
-  </p>
+  </ReactMarkdown>
 );
 
 const CareerCard = ({ career, type }: CareerCardProps) => {
