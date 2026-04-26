@@ -6,42 +6,52 @@ import {
   Laptop,
   Container,
   Database,
+  CloudCogIcon,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
 export const SKILLS = {
-  FRONTEND: {
+  "AI & LLM Engineering": {
     skills: [
-      "HTML/CSS",
-      "javascript",
-      "typescript",
-      "ecmascript",
-      "react",
-      "nextjs",
-    ],
-    icon: <Laptop className="lg:w-10 lg:h-10 w-8 h-8" />,
-  },
-  BACKEND: {
-    skills: ["nodejs", "nestjs", "graphQL", "serverless stack", "python"],
-    icon: <ServerIcon className="lg:w-10 lg:h-10 w-8 h-8" />,
-  },
-  AI: {
-    skills: [
-      "prompt engineering",
-      "agentic AI",
-      "langchain",
-      "langgraph",
-      "python",
+      "Agentic Systems",
+      "LangGraph & LangChain",
+      "RAG Pipelines",
+      "Vector Databases",
+      "Prompt Engineering",
     ],
     icon: <BrainIcon className="lg:w-10 lg:h-10 w-8 h-8" />,
   },
-  DATABASE: {
-    skills: ["postgresql", "redis"],
+  "Backend & APIs": {
+    skills: [
+      "Python (Expert)",
+      "FastAPI & Pydantic",
+      "Celery & Redis",
+      "RESTful APIs",
+      "SQLAlchemy",
+    ],
+    icon: <ServerIcon className="lg:w-10 lg:h-10 w-8 h-8" />,
+  },
+  "Cloud & DevOps": {
+    skills: [
+      "AWS (ECS, Lambda, S3, ALB)",
+      "Docker",
+      "CI/CD (GitHub Actions)",
+      "Pulumi / Infrastructure as Code",
+    ],
+    icon: <CloudCogIcon className="lg:w-10 lg:h-10 w-8 h-8" />,
+  },
+  "Databases & Quality": {
+    skills: [
+      "PostgreSQL & pgvector",
+      "Test-Driven Development (TDD)",
+      "pytest & Unit Testing",
+      "Observability (Langfuse, Sentry)",
+    ],
     icon: <Database className="lg:w-10 lg:h-10 w-8 h-8" />,
   },
-  DEVOPS: {
-    skills: ["docker"],
-    icon: <Container className="lg:w-10 lg:h-10 w-8 h-8" />,
+  "Frontend & Tooling": {
+    skills: ["TypeScript", "React", "NextJS", "Tailwind CSS"],
+    icon: <Laptop className="lg:w-10 lg:h-10 w-8 h-8" />,
   },
 };
 

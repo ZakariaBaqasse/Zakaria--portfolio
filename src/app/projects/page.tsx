@@ -18,7 +18,7 @@ export default function ProjectsPage() {
       <main className="min-h-screen bg-light">
         {/* Hero Section */}
         <div className="container mx-auto px-4 py-20 text-center">
-          <AnimatedTitle text="Building the Future, One Project at a Time!" />
+          <AnimatedTitle text="Architecting Autonomous Agents & RAG Pipelines." />
         </div>
 
         {/* Projects Grid */}
