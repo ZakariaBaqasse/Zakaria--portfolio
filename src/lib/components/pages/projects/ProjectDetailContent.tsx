@@ -96,6 +96,7 @@ export default function ProjectDetailContent({
                           width={1200}
                           height={675}
                           className="w-full h-auto object-cover"
+                          unoptimized
                         />
                       </div>
                     ) : (
