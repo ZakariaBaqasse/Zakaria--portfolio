@@ -6,32 +6,15 @@ import Image from "next/image";
 export default async function Home() {
   return (
     <>
-      <main className="flex min-h-screen items-center text-dark dark:text-light sm:items-start">
+      <main className="flex flex-1 items-center text-dark dark:text-light">
         <div
-          className="z-0 inline-block h-full w-full bg-light dark:bg-dark xl:p-24 lg:p-16 
-      md:p-12 sm:p-8 !pt-0 md:!pt-16 sm:!pt-16"
+          className="z-0 w-full bg-light dark:bg-dark xl:px-24 xl:py-16 lg:px-16 lg:py-12
+      md:px-12 md:py-10 px-8 py-10"
         >
-          <div className="flex w-full items-center justify-between flex-col lg:flex-row">
-            <div className="relative w-3/4 md:w-full flex items-center justify-center">
-              {/* decorative glow blob behind the image */}
-              <div className="absolute inset-0 rounded-3xl bg-primaryDark/10 blur-3xl scale-90" />
-              {/* image card */}
-              <div className="relative w-full rounded-2xl overflow-hidden ring-1 ring-primaryDark/30 shadow-[0_0_60px_rgba(88,230,217,0.18)]">
-                <Image
-                  src="/images/home-illustration.png"
-                  alt="AI multi-agent architecture diagram"
-                  width={500}
-                  height={500}
-                  className="h-auto w-full"
-                  sizes="(min-width: 1024px) 50vw, 75vw"
-                  priority
-                />
-                {/* subtle teal gradient overlay at the bottom edge */}
-                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-primaryDark/10 to-transparent pointer-events-none" />
-              </div>
-            </div>
-            <div className="space-y-6">
-              <div className="mb-12 flex flex-col gap-6 px-12">
+          <div className="flex w-full items-center justify-between gap-12 flex-col lg:flex-row">
+            {/* Text — first in DOM so it's on top in the mobile column */}
+            <div className="space-y-6 lg:order-2 lg:flex-1">
+              <div className="flex flex-col gap-6">
                 <AnimatedTitle
                   className="lg:text-left text-center"
                   text="Engineering Resilient Agentic AI systems & Scalable Backends"
@@ -61,6 +44,26 @@ export default async function Home() {
                     <a href="mailto:zakaria.baqasse@gmail.com">Contact</a>
                   </Button>
                 </div>
+              </div>
+            </div>
+
+            {/* Image — second in DOM (below text on mobile, left on desktop) */}
+            <div className="relative w-full md:w-3/4 lg:flex-1 lg:order-1 flex items-center justify-center">
+              {/* decorative glow blob behind the image */}
+              <div className="absolute inset-0 rounded-3xl bg-primaryDark/10 blur-3xl scale-90" />
+              {/* image card */}
+              <div className="relative w-full rounded-2xl overflow-hidden ring-1 ring-primaryDark/30 shadow-[0_0_60px_rgba(88,230,217,0.18)]">
+                <Image
+                  src="/images/home-illustration.png"
+                  alt="AI multi-agent architecture diagram"
+                  width={500}
+                  height={500}
+                  className="h-auto w-full"
+                  sizes="(min-width: 1024px) 50vw, 75vw"
+                  priority
+                />
+                {/* subtle teal gradient overlay at the bottom edge */}
+                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-primaryDark/10 to-transparent pointer-events-none" />
               </div>
             </div>
           </div>

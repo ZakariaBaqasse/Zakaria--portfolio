@@ -8,7 +8,7 @@ export default function HomePageLayout({
 }) {
   return (
     <>
-      <div className="min-h-screen">
+      <div className="flex flex-col min-h-screen">
         <NavBar />
         {children}
         <Footer />
