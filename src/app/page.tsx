@@ -23,6 +23,7 @@ export default async function Home() {
                   width={500}
                   height={500}
                   className="h-auto w-full"
+                  sizes="(min-width: 1024px) 50vw, 75vw"
                   priority
                 />
                 {/* subtle teal gradient overlay at the bottom edge */}

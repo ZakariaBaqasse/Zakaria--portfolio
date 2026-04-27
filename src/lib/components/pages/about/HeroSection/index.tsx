@@ -16,6 +16,8 @@ export default function HeroSection() {
               width={1000}
               height={1332}
               className="object-cover w-full"
+              sizes="(min-width: 1024px) 360px, (min-width: 768px) 300px, 260px"
+              priority
             />
           </div>
         </div>

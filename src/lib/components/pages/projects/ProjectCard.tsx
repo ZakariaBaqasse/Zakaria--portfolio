@@ -32,6 +32,8 @@ export default function ProjectCard({
           width={800}
           height={400}
           className="w-full h-auto hover:scale-110 transition-all duration-300"
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          unoptimized={!!project.image}
         />
       </CardHeader>
       <CardContent className={`p-4 `}>
