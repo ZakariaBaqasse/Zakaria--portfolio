@@ -23,18 +23,23 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
           className="md:w-[70vw] w-[95vw] flex justify-between items-center flex-col fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 py-32 bg-dark/90 dark:bg-light/75 rounded-lg z-50 backdrop-blur-md min-h-[50vh]"
         >
           <nav className="w-full mt-8 space-y-6 flex flex-col items-center">
-            {NAV_ITEMS.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`text-lg font-medium text-light ${
-                  pathname === item.href ? "border-b-2 border-light" : ""
-                }`}
-                onClick={onClose}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {NAV_ITEMS.map((item) => {
+              const isActive =
+                item.href === "/" ? pathname === item.href : pathname.startsWith(item.href);
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`text-lg font-medium text-light ${
+                    isActive ? "border-b-2 border-light" : ""
+                  }`}
+                  onClick={onClose}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
 
           <nav className="flex items-center space-x-4 mt-8">

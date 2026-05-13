@@ -11,10 +11,9 @@ import { Project } from "@/lib/utils/types";
 import { Github, Globe, ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import TechChip from "./TechChip";
 import { Badge } from "@/components/ui/badge";
+import MarkdownRenderer from "@/lib/components/shared/MarkdownRenderer";
 
 function toEmbedUrl(url: string): string {
   try {
@@ -128,12 +127,7 @@ export default function ProjectDetailContent({
           {/* Long description */}
           <div className="lg:col-span-8">
             {project.longDescription && (
-              <ReactMarkdown
-                className="prose prose-sm md:prose-base max-w-none text-dark"
-                remarkPlugins={[remarkGfm]}
-              >
-                {project.longDescription}
-              </ReactMarkdown>
+              <MarkdownRenderer content={project.longDescription} />
             )}
           </div>
 

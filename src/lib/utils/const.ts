@@ -9,6 +9,8 @@ export const PROJECTS_PER_PAGE = 3;
 
 export const EXPERIENCES_PER_PAGE = 4;
 
+export const ARTICLES_PER_PAGE = 5;
+
 export enum ListType {
   PROJECTS = "PROJECTS",
   EXPERIENCES = "EXPERIENCES",

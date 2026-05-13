@@ -4,6 +4,7 @@ import {
   jsonb,
   pgTable,
   timestamp,
+  text,
   varchar,
 } from "drizzle-orm/pg-core";
 import { ProjectLinks } from "../utils/types";
@@ -32,6 +33,21 @@ export const projectsTable = pgTable("projects", {
   comingSoon: boolean().default(false),
   links: jsonb("links").$type<ProjectLinks>().notNull(),
   technologies: varchar({ length: 255 }).array(),
+  createdAt: timestamp("createdAt", { precision: 3, mode: "string" })
+    .defaultNow()
+    .notNull(),
+});
+
+export const articlesTable = pgTable("articles", {
+  id: integer().primaryKey().generatedAlwaysAsIdentity(),
+  slug: varchar({ length: 255 }).notNull().unique(),
+  title: varchar({ length: 255 }).notNull(),
+  excerpt: varchar({ length: 500 }).notNull(),
+  body: text().notNull(),
+  tags: varchar({ length: 255 }).array(),
+  cover_image_url: varchar({ length: 500 }),
+  published: boolean().default(false).notNull(),
+  published_at: timestamp("published_at", { precision: 3, mode: "string" }),
   createdAt: timestamp("createdAt", { precision: 3, mode: "string" })
     .defaultNow()
     .notNull(),

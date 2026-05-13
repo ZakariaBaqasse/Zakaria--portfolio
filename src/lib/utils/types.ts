@@ -35,3 +35,16 @@ export type ProjectLinks = {
   visit: string;
   github?: string;
 };
+
+export type Article = {
+  id: number;
+  slug: string;
+  title: string;
+  excerpt: string;
+  body: string;
+  tags: string[] | null;
+  cover_image_url: string | null;
+  published: boolean;
+  published_at: string | null;
+  createdAt: string;
+};
