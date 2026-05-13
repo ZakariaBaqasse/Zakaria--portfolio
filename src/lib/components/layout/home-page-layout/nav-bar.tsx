@@ -11,6 +11,7 @@ export const NAV_ITEMS = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Projects", href: "/projects" },
+  { label: "Blog", href: "/blog" },
 ];
 
 export const SOCIAL_LINKS = [
@@ -25,19 +26,22 @@ export default function NavBar() {
   return (
     <header className="w-full md:px-32 md:py-8 px-10 py-4 flex items-center justify-between mb-3 relative">
       <nav className="hidden lg:flex items-center space-x-8">
-        {NAV_ITEMS.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className={`text-sm font-medium hover:text-primary ${
-              pathname === item.href
-                ? "text-primary border-b-2 border-primary"
-                : ""
-            }`}
-          >
-            {item.label}
-          </Link>
-        ))}
+        {NAV_ITEMS.map((item) => {
+          const isActive =
+            item.href === "/" ? pathname === item.href : pathname.startsWith(item.href);
+
+          return (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`text-sm font-medium hover:text-primary ${
+                isActive ? "text-primary border-b-2 border-primary" : ""
+              }`}
+            >
+              {item.label}
+            </Link>
+          );
+        })}
       </nav>
 
       <button

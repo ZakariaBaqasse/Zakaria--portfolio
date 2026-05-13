@@ -50,6 +50,13 @@
       "when": 1745344786155,
       "tag": "0007_add_demo_video_to_projects",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1778599748462,
+      "tag": "0008_natural_black_crow",
+      "breakpoints": true
     }
   ]
 }
